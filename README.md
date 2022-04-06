@@ -34,7 +34,7 @@ Open source Android-based app and Python code for detecting feeding gesture from
 
     8.1. Connect phone to computer via USB
     8.2. Open terminal
-    8.2.1. Change directory to APK folder (same as folder opened in Android Studio, by default)
+    8.2.1. Change directory to APK folder
       8.2.2. Enter commands:
         8.2.2.1. adb devices  (starts ADB sever + returns phone ID and connection status)
           8.2.2.1.1. It may be necessary to authorize ADB on the phone by selecting ‘allow’ on a notification that sometimes appears on the phone screen following this command
