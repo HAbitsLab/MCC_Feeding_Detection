@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MainApp</string>
+    <string name="templatefile">templates: </string>
+    <string name="testfile">test: </string>
+    <string name="selectfile">Select File</string>
+    <string name="test_result_file">test_results: </string>
+    <string name="btn_pred">do prediction</string>
+    <string name="warn_no_json">please select templates.json and test.json files !</string>
+    <string name="waiting">please waiting .....</string>
+    <string name="new_prediction">New Prediction</string>
+    <string name="new_optimized_prediction">New Optimized Prediction</string>
+</resources>
