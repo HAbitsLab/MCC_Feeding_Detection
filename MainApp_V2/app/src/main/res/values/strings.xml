@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string-array name="planets_array">
+        <item>Training_1236</item>
+        <item>Training_4</item>
+        <item>Training_5</item>
+        <item>Training_6</item>
+        <item>Model_1</item>
+        <item>Model_2</item>
+        <item>Model_3</item>
+        <item>Model_4</item>
+        <item>Model_5</item>
+        <item>Model_6</item>
+        <item>Model_7</item>
+        <item>Model_8</item>
+    </string-array>
+    <string-array name="data_array">
+        <item>FIC</item>
+        <item>Clemson</item>
+        <item>Oreba</item>
+    </string-array>
+</resources>
