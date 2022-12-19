@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string-array name="planets_array">
+        <item>model_1.train</item>
+        <item>model_1.inference</item>
+        <item>model_2.train</item>
+        <item>model_2.inference</item>
+        <item>model_3.train</item>
+        <item>model_3.inference</item>
+        <item>model_4.train</item>
+        <item>model_4.inference</item>
+        <item>model_5.train</item>
+        <item>model_5.inference</item>
+        <item>model_6.train</item>
+        <item>model_6.inference</item>
+        <item>model_7.inference</item>
+        <item>model_8.inference</item>
+    </string-array>
+    <string-array name="data_array">
+        <item>FIC</item>
+        <item>Clemson</item>
+        <item>OREBA</item>
+    </string-array>
+    <string-array name="setting_array">
+        <item>kyritsis_setting</item>
+        <item>dong_setting</item>>
+        <item>rouast_setting</item>
+        <item>thomaz_setting</item>
+    </string-array>
+</resources>
