@@ -194,7 +194,7 @@ def preprocessing(data, data_type='FIC'):
             train_x_final.append(FIR_filter(data=train_x_smooth, cutoff=1, fs=100, n_taps=512).reshape([1,LENGTH,6]))
         for j in range(valid_x.shape[0]/LENGTH):
             # Moving average
-            valid_x_smooth = moving_average(test_x[j, j + LENGTH], 25)
+            valid_x_smooth = moving_average(valid_x[j, j + LENGTH], 25)
             # FIR filter
             valid_x_final.append(FIR_filter(data=valid_x_smooth, cutoff=1, fs=100, n_taps=512).reshape([1,LENGTH,6]))
         for k in range(test_x.shape[0]/LENGTH):
