@@ -62,20 +62,10 @@ def get_intake_label(df_clean):
 
 
 def extract_train_test(df_raw, df_label, resample_len, freq):
-    '''
-    Extract train and text from the original dataset.
-
-    :param dataframe df_raw: raw dataframe.
-    :param dataframe df_label: label of feeding and non-feeding.
-    :param int resample_len: length of the segment after resampling.
-    :param int freq: target sampling frequency.
-
-    :return result: training x, y, test x and y dataframes (entire).
-    '''
-
     df_label = df_label.sort_values(by=['start']).reset_index(drop=True)
     df_raw = df_raw[['frame_id','timestamp','dom_acc_x','dom_acc_y','dom_acc_z','dom_gyro_x','dom_gyro_y','dom_gyro_z',
                      'ndom_acc_x', 'ndom_acc_y', 'ndom_acc_z', 'ndom_gyro_x', 'ndom_gyro_y', 'ndom_gyro_z']]
+    
     # flip non-dominant hand
     df_raw['ndom_gyro_x'] = df_raw['ndom_gyro_x'] * -1
     df_raw['ndom_gyro_y'] = df_raw['ndom_gyro_y'] * -1
@@ -100,7 +90,13 @@ def extract_train_test(df_raw, df_label, resample_len, freq):
         if(row['label']=='Inatke-dom'):
             df_temp = data.iloc[:,3:9]
         else:
-            df_temp = data.iloc[:,9:15] # non-dominant hand
+            # non-dominant hand
+            df_temp = data.iloc[:,9:15] 
+            # hand mirroring
+            FLIP_ACC = [-1., 1., 1.]
+            FLIP_GYRO = [1., -1., -1.]
+            df_temp[:, ['ndom_acc_x', 'ndom_acc_y', 'ndom_acc_z']] *= np.array(FLIP_ACC)
+            df_temp[:, ['ndom_gyro_x', 'ndom_gyro_y', 'ndom_gyro_z']] *= np.array(FLIP_GYRO)
             
         time_temp = np.arange(1/freq, df_temp.shape[0]/freq+10/freq, 1/freq) * 1000
         time_temp = time_temp[0:df_temp.shape[0]]
@@ -109,8 +105,8 @@ def extract_train_test(df_raw, df_label, resample_len, freq):
         df_resize = df_resize.loc[0:resample_len-1]
 
         # add x_train, y_train = intake (1)
-        x_train.append(preprocessing.normalize(np.array(df_resize)[:,0:6], norm='l2')) #L2 normalization
-        y_train.append(1) 
+        x_train.append(np.array(df_resize)[:,0:6])
+        y_train.append(1)
 
     # for all other gestures (non-bite)
     x_test_temp = []

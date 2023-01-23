@@ -131,6 +131,8 @@ for resample_len in [int(q1),int(mean_len),int(q3)]:
         label_feeding = df_feeding_2[['start_x','end']]
         label_feeding.columns= ['start', 'end']
         label_feeding['label'] = 'feeding'
+        total = total + label_up.shape[0]
+        after = after + label_feeding.shape[0]
 
         # using the entire session as training
         train_label = label_feeding
